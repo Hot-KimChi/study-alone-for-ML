@@ -31,6 +31,7 @@ print(np.unique(train_target, return_counts=True))
 
 
 
+
 ## Cross_validate 진행.
 
 
