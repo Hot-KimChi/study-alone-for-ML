@@ -35,9 +35,14 @@ train_scaled = train_scaled.reshape(-1, 28*28)
 print(train_scaled.shape)
 
 
-
 ## Cross_validate 진행.
+from sklearn.model_selection import cross_validate
+from sklearn.linear_model import SGDClassifier
 
+sc = SGDClassifier(loss='log', max_iter=5, random_state=42)
+scores =cross_validate(sc, train_scaled, train_target, return_train_score=True, n_jobs=-1)
+print('Train validation score:', np.mean(scores['test_score']))
+print('Train score:', np.mean(scores['train_score']))
 
 
 ##-------------------------------------------
