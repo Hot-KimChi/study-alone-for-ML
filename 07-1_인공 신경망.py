@@ -27,6 +27,12 @@ print(np.unique(train_target, return_counts=True))
 ## SGDClassifier 모델.
 ## 60,000개의 데이터샘플이 너무 많기에, 샘플을 하나씩 꺼내서 모델을 훈련하는 방법이 효율적.
 ## 확률적 경사 하강법. --> 여러 특성 중 기울기가 가장 가파른 방향따라 이동(즉, 정규화 필수 진행)
+## 픽셀은 0 - 255 사이의 정숫값을 가지고 있기에 255나누어 정규화 진행.
+## SGDClassifier 모델은 1차원 데이터만 받아들이기에 1차원으로 변경 필요.
+train_scaled = train_input / 255.0
+train_scaled = train_scaled.reshape(-1, 28*28)
+
+print(train_scaled.shape)
 
 
 
