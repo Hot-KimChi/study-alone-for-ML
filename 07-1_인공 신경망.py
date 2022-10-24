@@ -4,6 +4,11 @@ from tensorflow import keras
     keras.datasets.fashion_mnist.load_data()
 
 
+## 전달받은 데이터의 크기 확인
+print("train_input 크기:", train_input.shape)
+print("train_target 크기:", train_target.shape)
+
+
 ## 10개의 데이터 이미지 보기.
 import matplotlib.pyplot as plt
 fig, axs = plt.subplots(1, 10, figsize=(10, 10))
