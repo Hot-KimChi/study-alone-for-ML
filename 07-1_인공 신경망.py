@@ -22,7 +22,7 @@ plt.show()
 print([train_target[i] for i in range(10)])
 
 ## 레이블 당 샘플 개수 확인.
-print(train_input.shape, train_target.shape)
+print("train_input 크기:" train_input.shape, train_target.shape)
 print(test_input.shape, test_target.shape)
 
 import numpy as np
