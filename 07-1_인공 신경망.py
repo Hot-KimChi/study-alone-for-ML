@@ -18,6 +18,7 @@ for i in range(10):
 plt.show()
 
 
+
 ## 10개의 데이터의 Target
 print([train_target[i] for i in range(10)])
 
