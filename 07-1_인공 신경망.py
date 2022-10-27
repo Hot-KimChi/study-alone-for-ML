@@ -23,8 +23,8 @@ plt.show()
 print([train_target[i] for i in range(10)])
 
 ## 레이블 당 샘플 개수 확인.
-print("train_input 크기:" train_input.shape, train_target.shape)
-print(test_input.shape, test_target.shape)
+print("train 크기 확인:", train_input.shape, train_target.shape)
+print("test 크기 확인:", test_input.shape, test_target.shape)
 
 import numpy as np
 print(np.unique(train_target, return_counts=True))
