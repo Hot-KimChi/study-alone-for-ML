@@ -32,7 +32,7 @@ print(np.unique(train_target, return_counts=True))
 train_scaled = train_input / 255.0
 train_scaled = train_scaled.reshape(-1, 28*28)
 
-print(train_scaled.shape)
+print("1차원으로 변경, 샘플 개수 확인", train_scaled.shape)
 
 
 ## Cross_validate 진행.
