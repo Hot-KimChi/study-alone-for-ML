@@ -66,8 +66,15 @@ print('Train score with max_iter=20:', np.mean(scores['train_score']))
 
 
 ## 기존에 rule대로 데이터를 나누어 훈련세트 / 검증세트로 구분
-## dense layer만들기
+from sklearn.model_selection import train_test_split
+train_scaled, val_scaled, train_target, val_target = train_test_split(train_scaled, train_target, test_size=0.2, random_state=42)
 
+print("train_scaled 크기:", train_scaled.shape)
+print("train_target 크기:", train_target.shape)
+
+
+## dense layer만들기
+dense = keras.layers.Dense(10, activation='softmax', input_shape=(28*28,))
 
 
 ## 밀집층을 가진 신경망 모델 형성
