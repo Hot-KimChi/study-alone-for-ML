@@ -27,6 +27,7 @@ print(np.unique(train_target, return_counts=True))
 ## SGDClassifier 모델.
 ## 60,000개의 데이터샘플이 너무 많기에, 샘플을 하나씩 꺼내서 모델을 훈련하는 방법이 효율적.
 ## 확률적 경사 하강법. --> 여러 특성 중 기울기가 가장 가파른 방향따라 이동(즉, 정규화 필수 진행)
+
 ## 픽셀은 0 - 255 사이의 정숫값을 가지고 있기에 255나누어 정규화 진행.
 ## SGDClassifier 모델은 1차원 데이터만 받아들이기에 1차원으로 변경 필요.
 train_scaled = train_input / 255.0
@@ -41,22 +42,30 @@ from sklearn.linear_model import SGDClassifier
 
 sc = SGDClassifier(loss='log', max_iter=5, random_state=42)
 scores =cross_validate(sc, train_scaled, train_target, return_train_score=True, n_jobs=-1)
-print('Train validation score:', np.mean(scores['test_score']))
-print('Train score:', np.mean(scores['train_score']))
+print('Train validation score with max_iter=5:', np.mean(scores['test_score']))
+print('Train score with max_iter=5:', np.mean(scores['train_score']))
 
+
+sc = SGDClassifier(loss='log', max_iter=9, random_state=42)
+scores =cross_validate(sc, train_scaled, train_target, return_train_score=True, n_jobs=-1)
+print('Train validation score with max_iter=9:', np.mean(scores['test_score']))
+print('Train score with max_iter=9:', np.mean(scores['train_score']))
+
+
+sc = SGDClassifier(loss='log', max_iter=20, random_state=42)
+scores =cross_validate(sc, train_scaled, train_target, return_train_score=True, n_jobs=-1)
+print('Train validation score with max_iter=20:', np.mean(scores['test_score']))
+print('Train score with max_iter=20:', np.mean(scores['train_score']))
 
 ##-------------------------------------------
 
 ## 인공 신경망(ANN) 작업 시작.
-## tensorflow 진행
-
-
-
 ## 인공 신경망에서는 교차 검증을 잘 사용하지 않고 검증 세트를 별도로 덜어내어 사용
 ## 1) 딥러닝 분야의 데이터셋은 충분히 크기 때문에, 검증 점수가 안정적
 ## 2) 교차 검증을 수행하기에 훈련 시간이 너무 오래 걸림.
 
 
+## 기존에 rule대로 데이터를 나누어 훈련세트 / 검증세트로 구분
 ## dense layer만들기
 
 
