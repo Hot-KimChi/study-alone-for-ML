@@ -74,6 +74,7 @@ print("train_target 크기:", train_target.shape)
 
 
 ## dense layer만들기
+## 1) 10:
 dense = keras.layers.Dense(10, activation='softmax', input_shape=(28*28,))
 
 
