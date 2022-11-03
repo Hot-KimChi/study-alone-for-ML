@@ -74,11 +74,10 @@ print("train_target 크기:", train_target.shape)
 
 
 ## dense layer만들기
-## 1) 10: 뉴런 개수
-## 2) activation = 'softmax' : 뉴런의 출력에 적용할 함수
-## 3) input_shape: 입력의 크기
 dense = keras.layers.Dense(10, activation='softmax', input_shape=(28*28,))
-
+    ## 1) 10: 뉴런 개수
+    ## 2) activation = 'softmax' : 뉴런의 출력에 적용할 함수
+    ## 3) input_shape: 입력의 크기
 
 ## 밀집층을 가진 신경망 모델 형성
 
