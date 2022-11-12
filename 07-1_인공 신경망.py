@@ -79,11 +79,13 @@ dense = keras.layers.Dense(10, activation='softmax', input_shape=(28*28,))
     ## 2) activation = 'softmax' : 뉴런의 출력에 적용할 함수
     ## 3) input_shape: 입력의 크기
 
+
 ## 밀집층을 가진 신경망 모델 형성
+model = keras.Sequential(dense)
 
 
-
-## 케라스 모델을 훈련하기 전에 설정단계
+## 케라스 모델을 훈련하기 전에 설정단계 진행
+## model 객체의 compile 메서드 수행 with 손실함수 종류 / 훈련과정에서 계산하고 싶은 측정값 설정.
 ## 타깃값을 해당 클래스만 1이고 나머지는 모두 0인 배열로 만드는 것을 원-핫 인코딩 --> sprase_categorical_crossentropy
 
 
