@@ -85,7 +85,11 @@ model = keras.Sequential(dense)
 
 
 ## 케라스 모델을 훈련하기 전에 설정단계 진행해야 함.
+model.compile(loss='sparse_categorical_crossentropy', metrics='accuracy')
 ## model 객체의 compile 메서드 수행 with 손실함수 종류 / 훈련과정에서 계산하고 싶은 측정값 설정.
+## 다중 분류에서는 크로스 엔트로피 손실함수 사용
+    # 1) 이진 분류: loss = 'binary_crossentropy'
+    # 2) 다중 분류: loss = 'categorical_crossentropy'
 ## 타깃값을 해당 클래스만 1이고 나머지는 모두 0인 배열로 만드는 것을 원-핫 인코딩 --> sprase_categorical_crossentropy
 
 
