@@ -93,4 +93,8 @@ model.compile(loss='sparse_categorical_crossentropy', metrics='accuracy')
 ## 타깃값을 해당 클래스만 1이고 나머지는 모두 0인 배열로 만드는 것을 원-핫 인코딩 --> sprase_categorical_crossentropy
 
 
-## 모델 훈련 / 모델 평가
+## 모델 훈련
+model.fit(train_scaled, train_target, epochs=5)
+
+## 모델 평가
+model.evalute(val_scaled, val_target)
